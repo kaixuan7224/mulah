@@ -1,4 +1,4 @@
-// Display the data in a table
+// Create variable to hold the table
 const table = document.createElement('table');
 
 fetch('Table_Input.csv')
@@ -12,15 +12,14 @@ fetch('Table_Input.csv')
         // Combine the headers and data into a 2D array
         const dataArray = [headers, ...data];
 
+        // Display the data in a table
         dataArray.forEach(rowData => {
             const row = document.createElement('tr');
-
             rowData.forEach(cellData => {
                 const cell = document.createElement('td');
                 cell.textContent = cellData;
                 row.appendChild(cell);
             });
-
             table.appendChild(row);
         });
     });
